@@ -9,36 +9,31 @@ import javax.persistence.Id;
 public class Player {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
-    private String firstName;
-    private String lastName;
+    private String id;
+    private String name;
 
-    protected Player() {}
-
-    public Player(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    protected Player() {
     }
 
-    public long getId() {
+    public Player(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
+    public String getName() {
+        return name;
     }
 
     @Override
     public String toString() {
-        return String.format(
-                "Player[id=%d, firstName='%s', lastName='%s']",
-                id, firstName, lastName);
+        return "Player{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
-
 }
 

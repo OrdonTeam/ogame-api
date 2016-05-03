@@ -1,8 +1,6 @@
 package ogame.api;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import ogame.api.scrape.OgameScrape;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,21 +9,12 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class Application {
 
-	private static final Logger log = LoggerFactory.getLogger(Application.class);
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class);
-	}
-
-	@Bean
-	public CommandLineRunner demo(PlayerRepository repository) {
-		return (args) -> {
-			repository.save(new Player("Jack", "Bauer"));
-			repository.save(new Player("Chloe", "O'Brian"));
-			repository.save(new Player("Kim", "Bauer"));
-			repository.save(new Player("David", "Palmer"));
-			repository.save(new Player("Michelle", "Dessler"));
-		};
-	}
-
+    @Bean
+    public CommandLineRunner scrape(PlayerRepository repository) {
+        return new OgameScrape(repository);
+    }
 }
