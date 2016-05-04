@@ -14,8 +14,8 @@ public class PlayerEndpoint {
     @Autowired
     PlayerController playerController;
 
-    @RequestMapping(value = "/players/{id}", method = RequestMethod.GET)
-    public Player players(@PathVariable("id") String id) {
-        return playerController.getPlayer(id);
+    @RequestMapping(value = "uni/{uni}/players/{id}", method = RequestMethod.GET)
+    public Player players(@PathVariable("uni") String uni, @PathVariable("id") String id) {
+        return playerController.getPlayer(uni, id);
     }
 }

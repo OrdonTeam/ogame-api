@@ -13,16 +13,15 @@ import rx.Observable
 
 class ScrapingPlayerProvider : PlayerProvider {
 
-    val api = Retrofit.Builder()
-            .baseUrl("https://s670-en.ogame.gameforge.com")
-            .client(OkHttpClient())
-            .addConverterFactory(SimpleXmlConverterFactory.create())
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-            .build()
-            .create(Api::class.java)
-
-    override fun getPlayer(id: String): Player {
-        return api.getPlayer(id).map(toPlayer).toBlocking().first()
+    override fun getPlayer(uni: String, id: String): Player {
+        return Retrofit.Builder()
+                .baseUrl("https://$uni.ogame.gameforge.com")
+                .client(OkHttpClient())
+                .addConverterFactory(SimpleXmlConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build()
+                .create(Api::class.java)
+                .getPlayer(id).map(toPlayer).toBlocking().first()
     }
 
     val toPlayer: (PlayerDataXml) -> Player = { Player(it.id, it.name) }
