@@ -1,4 +1,4 @@
-package ogame.api.core
+package ogame.api.core.player
 
 class PlayerController(private val playerProvider: PlayerProvider) {
 

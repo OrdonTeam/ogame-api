@@ -1,7 +1,7 @@
 package ogame.api;
 
 import ogame.api.core.Player;
-import ogame.api.core.PlayerController;
+import ogame.api.core.player.PlayerController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
