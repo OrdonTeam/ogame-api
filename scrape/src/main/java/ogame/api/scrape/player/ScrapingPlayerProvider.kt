@@ -22,8 +22,10 @@ class ScrapingPlayerProvider : PlayerProvider {
             .create(Api::class.java)
 
     override fun getPlayer(id: String): Player {
-        return api.getPlayer(id).map({ Player("", "") }).toBlocking().first()
+        return api.getPlayer(id).map(toPlayer).toBlocking().first()
     }
+
+    val toPlayer: (PlayerDataXml) -> Player = { Player(it.id, it.name) }
 
     interface Api {
         @GET("/api/playerData.xml")

@@ -1,5 +1,8 @@
 package ogame.api.scrape.players
 
+import ogame.api.core.dto.Player
+import ogame.api.core.players.PlayersProvider
+import ogame.api.scrape.players.dto.PlayerXml
 import ogame.api.scrape.players.dto.PlayersXml
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -8,7 +11,7 @@ import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 import retrofit2.http.GET
 import rx.Observable
 
-class OgameScrape {
+class ScrapingPlayersProvider : PlayersProvider {
 
     val api = Retrofit.Builder()
             .baseUrl("https://s670-en.ogame.gameforge.com")
@@ -18,7 +21,11 @@ class OgameScrape {
             .build()
             .create(Api::class.java)
 
-    fun getPlayers() = api.getPlayers().toBlocking().first()
+    override fun getPlayers() = api.getPlayers().map(function).toBlocking().first()
+
+    private val function: (PlayersXml) -> List<Player> = { players ->
+        players.players.map { Player(it.id, it.name) }
+    }
 
     interface Api {
         @GET("/api/players.xml")

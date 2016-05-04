@@ -19,6 +19,6 @@ public class PlayersXml {
     public String serverId;
 
     @ElementList(name = "player", inline = true)
-    public List<PlayerXml> playerXml;
+    public List<PlayerXml> players;
 
 }
