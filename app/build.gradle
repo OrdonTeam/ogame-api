@@ -24,6 +24,7 @@ targetCompatibility = 1.8
 
 dependencies {
     compile project(":core")
+    compile project(":cache")
     compile project(":scrape")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")

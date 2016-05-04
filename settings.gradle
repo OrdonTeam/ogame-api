@@ -2,4 +2,5 @@ include 'app'
 include 'scrape'
 include 'player'
 include 'core'
+include 'cache'
 

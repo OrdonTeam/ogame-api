@@ -1,5 +1,7 @@
 package ogame.api;
 
+import ogame.api.cache.CachedPlayerProvider;
+import ogame.api.cache.CachedPlayersProvider;
 import ogame.api.core.player.PlayerController;
 import ogame.api.core.players.PlayersController;
 import ogame.api.core.players.SearchPlayersController;
@@ -18,12 +20,12 @@ public class Application {
 
     @Bean
     public PlayerController playerController() {
-        return new PlayerController(new ScrapingPlayerProvider());
+        return new PlayerController(new CachedPlayerProvider(new ScrapingPlayerProvider()));
     }
 
     @Bean
     public PlayersController playersController() {
-        return new PlayersController(new ScrapingPlayersProvider());
+        return new PlayersController(new CachedPlayersProvider(new ScrapingPlayersProvider()));
     }
 
     @Bean
