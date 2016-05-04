@@ -1,6 +1,6 @@
-package ogame.api.scrape;
+package ogame.api.scrape.players;
 
-import ogame.api.scrape.dto.PlayersXml;
+import ogame.api.scrape.players.dto.PlayersXml;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;

@@ -1,4 +1,4 @@
-package ogame.api.scrape.dto;
+package ogame.api.scrape.players.dto;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;

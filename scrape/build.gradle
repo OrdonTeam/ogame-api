@@ -4,11 +4,15 @@ buildscript {
         jcenter()
         mavenCentral()
     }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.1-2"
+    }
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'kotlin'
 
 repositories {
     mavenCentral()
@@ -23,6 +27,7 @@ dependencies {
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofit_version"
     compile "com.squareup.retrofit2:converter-gson:$retrofit_version"
     compile 'com.squareup.retrofit2:converter-simplexml:2.0.0'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:1.0.1-2"
     testCompile("junit:junit")
 }
 
