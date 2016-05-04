@@ -18,6 +18,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+    compile project(":core")
     compile "com.squareup.retrofit2:retrofit:$retrofit_version"
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofit_version"
     compile "com.squareup.retrofit2:converter-gson:$retrofit_version"
