@@ -2,6 +2,7 @@ package ogame.api;
 
 import ogame.api.core.player.PlayerController;
 import ogame.api.core.players.PlayersController;
+import ogame.api.core.players.SearchPlayersController;
 import ogame.api.scrape.player.ScrapingPlayerProvider;
 import ogame.api.scrape.players.ScrapingPlayersProvider;
 import org.springframework.boot.SpringApplication;
@@ -23,5 +24,10 @@ public class Application {
     @Bean
     public PlayersController playersController() {
         return new PlayersController(new ScrapingPlayersProvider());
+    }
+
+    @Bean
+    public SearchPlayersController searchPlayersController(PlayersController playersController) {
+        return new SearchPlayersController(playersController);
     }
 }
