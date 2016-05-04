@@ -1,6 +1,5 @@
 package ogame.api.scrape.dto;
 
-import ogame.api.Player;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;
 
