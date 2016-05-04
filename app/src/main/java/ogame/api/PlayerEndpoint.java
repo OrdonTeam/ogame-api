@@ -1,6 +1,6 @@
 package ogame.api;
 
-import ogame.api.core.Player;
+import ogame.api.core.dto.Player;
 import ogame.api.core.player.PlayerController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
